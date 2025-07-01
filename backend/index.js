@@ -19,7 +19,7 @@ app.post('/generate', async (req, res) => {
     );
     res.json({ image: resp.data.candidates[0].image });
     } catch (err) {
-    console.error(err.response?.data || err.message);
+    console.error((err.response && err.response.data) || err.message);
     res.status(500).json({ error: "Image generation failed" });
     }
 });
